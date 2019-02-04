@@ -1,0 +1,16 @@
+.DropDown {
+	width: 100%;
+	height: 50vh;
+	background-color: pink;
+	overflow: scroll;
+}
+
+.DropDown_item {
+	height: 30px;
+	border: 1px solid black;
+	text-align: left;
+}
+.DropDown_item p {
+	margin: 0;
+	padding: 0;
+}
