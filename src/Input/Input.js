@@ -5,14 +5,15 @@ import DropDown from '../DropDown/DropDown'
 import filterUsers from '../server/index'
 
 export default class Input extends Component {
-	componentDidMount() {
-		const users = filterUsers('ben')
-		console.log('USERS', users)
+	state = {
+		inputText: null,
+		cachedUsers: [],
+		users: null, // ["Anderson"] || null || []
 	}
 
-	state = {
-		cachedUsers: [],
-	}
+	/////////////
+	// RENDERS //
+	/////////////
 
 	render() {
 		return (
@@ -24,6 +25,20 @@ export default class Input extends Component {
 	}
 
 	renderDropDown() {
+		const { users } = this.state
+		if (!users) {
+			return
+		}
+
 		return <DropDown />
+	}
+
+	/////////////
+	// GETTERS //
+	/////////////
+
+	getUsers() {
+		const users = filterUsers()
+		this.setState({ users })
 	}
 }
